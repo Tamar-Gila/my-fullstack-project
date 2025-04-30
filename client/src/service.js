@@ -1,7 +1,10 @@
 import axios from 'axios';
 
 //לשלוח לבסיס
-axios.defaults.baseURL = "http://localhost:5299/items"
+// axios.defaults.baseURL = "http://localhost:5299/items"
+
+axios.defaults.baseURL = process.env.REACT_AP_API;
+
 
 //מטפל בשגיאות
 axios.interceptors.response.use(
