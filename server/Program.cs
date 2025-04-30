@@ -27,11 +27,11 @@ builder.Services.AddDbContext<ToDoDbContext>(options=>
 var app = builder.Build();
 
 // הפעלת Swagger, אך רק אם אנחנו בסביבת פיתוח (Development).
-if (app.Environment.IsDevelopment())  
-{
+// if (app.Environment.IsDevelopment())  
+// {
     app.UseSwagger();  // מפעיל את Swagger ומייצר את תיעוד ה-API.
     app.UseSwaggerUI();  // מפעיל את ממשק המשתמש של Swagger כדי לראות את התיעוד ולנסות את ה-API.
-}
+// }
 
 app.UseCors();//הפעלת ה cors
 
@@ -65,4 +65,7 @@ app.MapDelete("/items/{id}", async (ToDoDbContext context, int id) =>
     await context.SaveChangesAsync();  // שומר את השינויים במסד הנתונים.
     return Results.NoContent();  // מחזיר תשובה בלי תוכן (200 OK).
 });
+
+app.MapGet("/", () => "server API is runing");
+
 app.Run();
