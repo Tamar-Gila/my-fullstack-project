@@ -35,7 +35,7 @@ var app = builder.Build();
 
 app.UseCors();//הפעלת ה cors
 
-app.MapGet("/",()=>"🪬");
+// app.MapGet("/",()=>"🪬");
 
 app.MapGet("/items",async (ToDoDbContext context) => await context.Items.ToArrayAsync());
 
